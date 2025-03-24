@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch & Earn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .phone-wrapper {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+            background: white;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #184245;
+            color: white;
+            position: relative;
+        }
+        .back-btn {
+            position: absolute;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .back-btn i {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+        #video-container {
+            margin: 20px auto;
+        }
+        #coin-display {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="phone-wrapper">
+    <!-- Navbar with Back Button -->
+    <nav>
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <div style="width: 100%; text-align: center;">
+            <h1 style="margin: 0;">play-cash</h1>
+        </div>
+    </nav>
+
+    <h1>Watch Video & Earn Coins</h1>
+    <div id="video-container">
+        <iframe id="video" width="320" height="240" 
+            src="https://www.youtube.com/embed/annBPyQUE2c?enablejsapi=1" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+    <div id="coin-display">Coins: <span id="coins">0</span></div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="video.js"></script>
+
+</body>
+</html>
