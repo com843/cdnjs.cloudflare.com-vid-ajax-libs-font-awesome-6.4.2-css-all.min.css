@@ -3,7 +3,7 @@ document.getElementById("coins").innerText = coins;
 
 let rewarded = false;
 let player;
-let interval;
+let interval = null;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('video', {
@@ -14,12 +14,8 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
+    if (event.data === YT.PlayerState.PLAYING && !interval) {
         rewarded = false;
-
-      
-        clearInterval(interval);
-
 
         interval = setInterval(() => {
             if (player.getPlayerState() === YT.PlayerState.PLAYING) {
@@ -28,8 +24,8 @@ function onPlayerStateChange(event) {
                 document.getElementById("coins").innerText = coins;
             }
         }, 4000);
-    } else {
-        
+    } else if (event.data !== YT.PlayerState.PLAYING) {
         clearInterval(interval);
+        interval = null;  // Reset interval reference
     }
 }
